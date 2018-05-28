@@ -1,19 +1,29 @@
 %% preamble
 clear all
 clc
-addpath(genpath('C:\Users\Liam Uni\OneDrive - University of Exeter\FTC4BWB'));
+
 load('BWBss');
+ss=BWBlat1;
+
+
 
 %% Model parameters
-ss=BWBlat1;
 [A, B, C, D]=ss2m(ss);
+[A, B, Tr]=stdfrm(A,B);
+[B2 Bv]=fact(B);
+x0=[0 0 0 0 0]';
+
+BWBlatsf=ss2ss(BWBlat1, Tr)
 
 %% Controller Parameters
-Q=eye(5);
-P2=-eye(5);
+Q=diag([1 1 1 1 1]);
+P2=eye(3);
+rho=20;
+delta=0.01;
 
+%% SQM
 S=SQM(A, B, Q);
-
-
+[K1 K2]=SMCgain(S, A, B, P2)
+%%
 
 

@@ -1,7 +1,7 @@
 function [A B p] =parti(A, B)
 
 [nn, mm] = size (B);
-ncols = size(1,nn);
+
 
 p=0;
 Br=round(B,5);
@@ -17,7 +17,7 @@ end
 A11=A(1:p-1, 1:p-1);
 A12=A(1:p-1, p:nn);
 A21=A(p:nn, 1:p-1);
-A22=A(p-1:nn, p-1:nn);
+A22=A(p:nn, p:nn);
 
 A=cell(2,2);
 A{1,1}=A11;

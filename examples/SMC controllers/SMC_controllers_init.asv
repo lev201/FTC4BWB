@@ -1,0 +1,75 @@
+%% preamble
+clear all
+clc
+
+load('BWBss');
+ss=BWBlat1;
+
+
+
+%% Model parameters
+[A, B, C, D]=ss2m(ss);
+[A, B, Tr]=stdfrm(A,B);
+[B2 Bv]=fact(B);
+x0=[0 0 0 0 0]';
+
+%% Controller Parameters
+Q=eye(5);
+P2=-eye(3);
+rho=20;
+
+%% SQM
+
+% nn=size(A,1);
+% 
+% [nn, mm] = size (B);
+% ncols = size(1,nn);
+% 
+% p=0;
+% Br=round(B,5);
+% 
+% for i = 1:nn
+%     if Br(i,:) == zeros(1, size(B,2))
+%         p=p+1;
+%     else
+%         p=p;
+%     end
+% end
+% 
+% A11=A(1:p-1, 1:p-1);
+% A12=A(1:p-1, p:nn);
+% A21=A(p:nn, 1:p-1);
+% A22=A(p:nn, p:nn);
+% 
+% A=cell(2,2);
+% A{1,1}=A11;
+% A{1,2}=A12;
+% A{2,1}=A21;
+% A{2,2}=A22;
+% 
+% B1=B(1:p-1, 1:mm);
+% B2=B(p:nn, 1:mm);
+% 
+% B=cell(2,1);
+% B{1,1}=B1;
+% B{2,1}=B2;
+% 
+% Q11=Q(1:p-1, 1:p-1);
+% Q12=Q(1:p-1, p:nn);
+% Q21=Q(p:nn, 1:p-1);
+% Q22=Q(p:nn, p:nn);
+% 
+% A_hat=A{1,1}-A{1,2}*inv(Q22)*Q21;
+% 
+% Q_hat=Q11-Q12*inv(Q22)*Q21;
+% 
+% P1=care(A_hat, A{1,2}, Q_hat);
+% M=inv(Q22)*(A{1,2}'*P1+Q21);
+% 
+% E=eig(A{1,1}-A{1,2}*M);
+% S2=eye(p);
+% S1=[S2*M];
+% S=[S1 S2];
+%%
+
+
