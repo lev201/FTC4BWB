@@ -14,9 +14,9 @@ for i = 1:nn
     end
 end
 
-B2=B(p:nn, 1:mm);
+B2=Br(nn-(nn-p-1):nn, 1:mm);
 
-Bv=[zeros(size(B,1)-p, size(B2,1)); eye(size(B2,1))];
+Bv=[zeros(size(B,1)-size(B2,1), size(B2,1)); eye(size(B2,1))];
     
     
 

@@ -1,4 +1,4 @@
-function [Ai, Bi] = ss2im(A, B, C, yc)
+function [Ai, Bi, Ci] = ss2im(A, B, C, yc)
 
 [nn, mm] = size (B);
 
