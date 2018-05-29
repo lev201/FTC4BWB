@@ -1,6 +1,4 @@
 function [A B p] =parti(A, B)
-A=BWBlat.A
-B=Bv
 
 [nn, mm] = size (B);
 
