@@ -1,8 +1,5 @@
 function [S, E]=SQM(A, B, Q);
 
-Q=diag([1 1 1 1 1]);
-A=BWBlat1.A;
-B=BWBlat1.B;
 nn=size(A,1);
 [A,B]=stdfrm(A, B);
 [A B p]=parti(A, B);
